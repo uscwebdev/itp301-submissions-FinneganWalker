@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Finnegan Walker | Student Page</title>
+	<style>
+		#main {
+			margin: auto;
+			background-color: white;
+			border: 2px solid black;
+			width: 720px;
+			color: #34568B;
+		}
+
+		#name {
+			text-align: center;
+			padding: 20px 0;
+		}
+
+		.class-stuff {
+			margin: auto;
+			display: inline-block;
+			width: 48%;
+			height: 250px;
+			vertical-align: top;
+			text-align: center;
+			padding: 20px 0;
+		}
+
+		h3 {
+			text-decoration: underline;
+		}
+
+		#button {
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="name">
+			<h1>Finnegan Walker</h1>
+			<p><a href="mailto:frwalker@usc.edu">Contact me</a></p>
+		</div>
+
+		<div id="button">
+			<button onclick="changeColor()">Favorite Color</button>
+		</div>
+
+		<div class="class-stuff">
+			<h3>Labs</h3>
+			<a href="index.html" target="_blank">Student Page (Lab 1)</a>
+		</div>
+
+		<div class="class-stuff">
+			<h3>Assignments</h3>
+		</div>
+	</div>
+
+	<script>
+		function changeColor() {
+			var mainDiv = document.getElementById('main');
+			mainDiv.style.backgroundColor = '#FF6F61';
+		}
+	</script>
+</body>
+</html>
