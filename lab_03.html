@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab_03</title>
+    <style>
+        body{
+            width: 1100px;
+            height: auto;
+            margin: 0 auto;
+            color: #edf4f2;
+        }
+
+        #header{
+            width: 900px;
+            height: 150px;
+            text-align: center;
+            background-color: #31473A;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            font-size: 1em;
+        }
+
+        #main{
+            width: 900px;
+            height: auto;
+            background-color: #7c8363;
+
+        }
+
+        .img{
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .img img{
+            width: 277px;
+            height: 270px;
+        }
+
+
+        #subtotal{
+            width: 900px;
+            height: auto;
+            text-align: center;
+            
+            padding-bottom: 10px;
+        }
+
+        #footer{
+            width: 900px;
+            height: 25px;
+            background-color: #31473A ;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>Shopping Cart</h1>
+        <button id="btn-funds">Add Funds</button>
+    </div>
+
+    <div id="main">
+        <div class="img">
+            <img id="img1" src="img/shop1.jpg" alt="Fifa 23">
+            <h3>Fifa 23</h3>
+            <p>$60</p>
+        </div>
+
+        <div class="img">
+            <img id="img2" src="img/shop2.jpg" alt="Fifa 19">
+            <h3>Fifa 19</h3>
+            <p>$45</p>
+        </div>
+
+        <div class="img">
+            <img id="img3" src="img/shop3.jpg" alt="Fifa 14">
+            <h3>Fifa 14</h3>
+            <p>$15</p>
+        </div>
+
+        <div id="subtotal">
+            <h3>Cart Subtotal: $<span>0</span></h3>
+            <h3>Fund Amount: $<span id="funds">0</span></h3>
+        </div>
+        
+
+    </div>
+
+    <div id="footer">
+        <p>FinnWalker Shopping Co</p>
+    </div>
+
+    <script>
+        /*
+        Workflow:
+            1. create variables to store the values for the shopping cart and for the amount each item is
+            2. then create 3 seperate document.querysecltors for each img1,2,and 3
+            3. set the shopCart value to add the value of the item you are adding to your cart
+            4. next make sure those work using console "worked"
+            5. next set the innerHTML to the new shopcart value in the span
+            6. make sure everything works using the console!
+        */
+
+        var shopCart = 0;
+        var balance = 0;
+        var item1 = 60;
+        var item2 = 45;
+        var item3 = 15;
+
+
+        // add the add funds button and allow you to add funds multiple times
+        document.querySelector("#btn-funds").onclick = function(){
+            console.log("button works");
+            var addedFunds = parseInt(prompt("Enter balance amount: "));
+            balance += addedFunds;
+
+            console.log("balance amount added: "+ addedFunds);
+            console.log("new balance: "+ balance);
+            document.querySelector("#funds").innerHTML = balance;
+        };
+
+
+        // now have to change the buttons below to check if the balance has enough money
+        // if it does the add it to cart subtotal and subtract from balance
+        // else --> send alert saying "Insaffiecient funds"
+       
+    
+
+        // create 3 different click functions for the images 
+        document.querySelector("#img1").onclick = function(){
+            console.log("Click Works");
+            if (item1 <= balance){
+            // if have enough money
+                shopCart += item1;
+                balance -=item1;
+                // set the shopcart to the right value + add console
+                document.querySelector("#subtotal span").innerHTML = shopCart;
+                document.querySelector("#funds").innerHTML = balance;
+                console.log("Updated ShopCart: "+shopCart)
+                console.log("New balance: "+ balance);
+            } else {
+                alert("Insufficient funds!")
+                console.log("Add funds")
+            }
+        
+        };
+
+        document.querySelector("#img2").onclick = function(){
+            console.log("Click Works");
+            if (item2 <= balance){
+            // if have enough money
+                shopCart += item2;
+                balance -=item2;
+                // set the shopcart to the right value + add console
+                document.querySelector("#subtotal span").innerHTML = shopCart;
+                document.querySelector("#funds").innerHTML = balance;
+                console.log("Updated ShopCart: "+shopCart)
+                console.log("New balance: "+ balance);
+            } else {
+                alert("Insufficient funds!")
+                console.log("Add funds")
+            }
+        
+        };
+
+        document.querySelector("#img3").onclick = function(){
+            console.log("Click Works");
+            if (item3 <= balance){
+            // if have enough money
+                shopCart += item3;
+                balance -=item3;
+                // set the shopcart to the right value + add console
+                document.querySelector("#subtotal span").innerHTML = shopCart;
+                document.querySelector("#funds").innerHTML = balance;
+                console.log("Updated ShopCart: "+shopCart)
+                console.log("New balance: "+ balance);
+            } else {
+                alert("Insufficient funds!")
+                console.log("Add funds")
+            }
+        
+        };
+        // the end
+    </script>
+</body>
+</html>
