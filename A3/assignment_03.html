@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+	<style>
+		#display {
+			font-size: 2em;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1 class="col-12 text-center mt-5">JS Calculator</h1>
+		</div> <!-- .row -->
+		<div class="row">
+			<div id="calculator" class="mt-4 col-12 col-md-6 ml-md-auto mr-md-auto col-lg-4">
+				<div class="row">
+					<input type="text" id="display" class="col-12 text-right form-control" value="0">
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="bac" class="col-9 btn btn-lg btn-outline-dark">AC</button>
+					<button id="b/" class="col-3 btn btn-lg btn-outline-dark">/</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="b7" class="col-3 btn btn-lg btn-outline-dark">7</button>
+					<button id="b8" class="col-3 btn btn-lg btn-outline-dark">8</button>
+					<button id="b9" class="col-3 btn btn-lg btn-outline-dark">9</button>
+					<button id="bx" class="col-3 btn btn-lg btn-outline-dark">x</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="b4" class="col-3 btn btn-lg btn-outline-dark">4</button>
+					<button id="b5" class="col-3 btn btn-lg btn-outline-dark">5</button>
+					<button id="b6" class="col-3 btn btn-lg btn-outline-dark">6</button>
+					<button id="b-" class="col-3 btn btn-lg btn-outline-dark">-</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="b1" class="col-3 btn btn-lg btn-outline-dark">1</button>
+					<button id="b2" class="col-3 btn btn-lg btn-outline-dark">2</button>
+					<button id="b3" class="col-3 btn btn-lg btn-outline-dark">3</button>
+					<button id="b+" class="col-3 btn btn-lg btn-outline-dark">+</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="b0" class="col-6 btn btn-lg btn-outline-dark">0</button>
+					<button id="b." class="col-3 btn btn-lg btn-outline-dark">.</button>
+					<button id="b=" class="col-3 btn btn-lg btn-outlineDark">=</button>
+				</div> <!-- .row -->
+			</div> <!-- #calculator -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+    <script>
+
+        // global variables (try and not have it be redundant)
+        var number1 = "";
+        var number2 = "";
+        var sign = "";
+        var finalNumber = 0;
+        var display = document.getElementById("display");
+
+        //General user workflow:
+        // User enters the first number (could be multi-digit),
+        // User presses an operation (addition, subtraction, multiplication, or division),
+        // User enters the second number (could be multi-digit),
+        // User presses = button to see the result.
+        // User presses AC button to clear the display (show 0).
+
+        // use .getElementById from youtubevideo and run it through every number 0-9
+        // when clicked... if the sign hasnt been clicked -> sign is empty at the number to number1 variable with adds to string
+        // then 
+        
+        document.getElementById("b0").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "0";
+            } else {
+                number2 += "0";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b1").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "1";
+            } else {
+                number2 += "1";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b2").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "2";
+            } else {
+                number2 += "2";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b3").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "3";
+            } else {
+                number2 += "3";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b4").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "4";
+            } else {
+                number2 += "4";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b5").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "5";
+            } else {
+                number2 += "5";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b6").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "6";
+            } else {
+                number2 += "6";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b7").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "7";
+            } else {
+                number2 += "7";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b8").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "8";
+            } else {
+                number2 += "8";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        document.getElementById("b9").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += "9";
+            } else {
+                number2 += "9";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+
+        // for all the signs
+        
+        document.getElementById("b/").addEventListener("click", function () {
+            sign = "/";
+        });
+        
+        document.getElementById("b-").addEventListener("click", function () {
+            sign = "-";
+        });
+        
+        document.getElementById("b.").addEventListener("click", function () {
+            if (sign === "") {
+                number1 += ".";
+            } else {
+                number2 += ".";
+            }
+            display.value = sign === "" ? number1 : number2;
+        });
+        
+        
+        document.getElementById("bx").addEventListener("click", function () {
+            sign = "*";
+        });
+
+        document.getElementById("b+").addEventListener("click", function () {
+            sign = "+";
+        });
+
+       
+
+        // if the user selects = and then run through an if else statement 
+        // make both the numbers floats to check for decimal
+        // then check if sign variable == what and then run that math equation into finalnumber var
+
+            document.getElementById("b=").addEventListener("click", function () {
+        if (number1 !== "" && number2 !== "") {
+            number1 = parseFloat(number1);
+            number2 = parseFloat(number2);
+
+            if (sign === "+") {
+                finalNumber = number1 + number2;
+            } else if (sign === "-") {
+                finalNumber = number1 - number2;
+            } else if (sign === "*") {
+                finalNumber = number1 * number2;
+            } else if (sign === "/") {
+                if (number2 !== 0) {
+                    finalNumber = number1 / number2;
+                } else {
+                    finalNumber = "Error";
+                }
+            } else {
+                finalNumber = "Error";
+            }
+
+            display.value = finalNumber;
+            number1 = finalNumber.toString();
+            number2 = "";
+            sign = "";
+        }
+        });
+    
+        // checks to make sure when user selects AC to reset the number and everything back to 0
+        // + make sure to add to reset ALL variables -> check again at the top
+        document.getElementById("bac").addEventListener("click", function () {
+            number1 = "";
+            number2 = "";
+            sign = "";
+            finalNumber = 0;
+            display.value = "0";
+        });
+
+       
+
+
+    </script>
+</body>
+</html>
