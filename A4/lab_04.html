@@ -17,6 +17,18 @@
 			text-align: center;
 		}
 
+		#main h1 {
+			color: #BB2528;
+		}
+
+		#mainIMG img {
+			width: 70%;
+			height: 600px;
+			border: 2px solid white;
+			border-radius: 5px;
+			object-fit: cover;
+		}
+
 		.img-container {
 			display: inline-block;
 			width: 19%;
@@ -32,48 +44,37 @@
 			border: 2px solid white;
 			border-radius: 5px;
 			object-fit: cover;
-		}
-
-		#mainIMG {
-			margin-bottom: 20px;
-		}
-
-		#mainIMG img {
-			width: 70%;
-			height: 600px;
-			border: 2px solid white;
-			border-radius: 5px;
-			object-fit: cover;
+			cursor: pointer; /* Add cursor pointer for better UX */
 		}
 	</style>
 </head>
 <body>
 	<div id="main">
-		<h1 style="color: #BB2528;">The Holidays</h1>
+		<h1>The Holidays</h1>
 		<div id="mainIMG">
 			<img id="mainImage" src="IMG/c-env.jpeg" alt="Main PIC">
 		</div>
     <!-- Add a paragraph element to display the caption -->
 		<p id="mainCaption">Christman Environment</p>
 		<div class="img-container">
-			<img src="IMG/c-env.jpeg" alt="Christmas Environment" onclick="changeMainImage(this)">
+			<img src="IMG/c-env.jpeg" alt="Christmas Environment">
 		</div>
 		<div class="img-container">
-			<img src="IMG/c-balls.jpg" alt="Christmas Balls" onclick="changeMainImage(this)">
+			<img src="IMG/c-balls.jpg" alt="Christmas Balls">
 		</div>	
 		<div class="img-container">
-			<img src="IMG/c-santa.jpeg" alt="Christmas Santa" onclick="changeMainImage(this)">
+			<img src="IMG/c-santa.jpeg" alt="Christmas Santa">
 		</div>	
 		<div class="img-container">
-			<img src="IMG/c-trees.jpg" alt="Christmas Trees" onclick="changeMainImage(this)">
+			<img src="IMG/c-trees.jpg" alt="Christmas Trees">
 		</div>
 		<div class="img-container">
-			<img src="IMG/c-lights.jpg" alt="Christmas Lights" onclick="changeMainImage(this)">
+			<img src="IMG/c-lights.jpg" alt="Christmas Lights">
 		</div>	
 	</div>
 
 	<script>
-
+		// old code
 		/*
 		function changeMainImage(clickedImage) {
 			var mainImage = document.getElementById('mainImage');
@@ -102,7 +103,7 @@
 		thumbnailImages.forEach(function (thumbnailImage) {
 			thumbnailImage.onclick = function () {
 				changeMainImage(this);
-				console.log("Updated Imgage: " + thumbnailImage.alt);
+				console.log("Updated Image: " + thumbnailImage.alt);
 			};
 		});
 	</script>
