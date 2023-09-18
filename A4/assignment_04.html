@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>assignment_04</title>
+    <style>
+        #main{
+            margin:100px;
+            height: auto;
+            width: 720px;
+            border: 2px solid black;
+            text-align: left;
+            padding: 50px;
+            
+        }
+
+        #main button{
+            background-color: lightblue;
+            color: black
+        }
+
+        #diceImages {
+            display: flex; /* Use flexbox to arrange images in a row */
+            justify-content: space-between; /* Space them evenly */
+        }
+
+        #diceImages img {
+            width: 100px; /* Set the width of each image */
+            height: 100px; /* Set the height of each image */
+        }
+
+        #resultContainer {
+            display: flex;
+            align-items: center;
+        }
+
+        #resultMessage {
+            margin-left: 20px; /* Add some space between the h2 and the result message */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <!--Liars Dice heading with the input (make sure to capture input)-->
+        <h1>Liar's Dice</h1>
+        <input type="text" id="userInput" placeholder="1-6" required>
+        
+        <!-- Submit button -->
+        <button id="submitGuess" type="button">Submit</button>
+       
+        <div id="resultContainer">
+            <h2>Result:</h2>
+            <div id="resultMessage"></div>
+        </div>
+        
+        <!--div for all img-->
+        <div id="diceImages">
+            <img src="dice_images/1.png" alt="1">
+            <img src="dice_images/2.png" alt="2">
+            <img src="dice_images/3.png" alt="3">
+            <img src="dice_images/4.png" alt="4">
+            <img src="dice_images/5.png" alt="5">
+        </div>
+    </div>
+
+
+    
+    <script>
+        // need function 
+        function checkGuess (userInput){
+            // declare the array 
+            numbers = []; 
+
+            // fill the array using the for loop
+            for (let i = 0; i < 5; i++) {
+                // use math.floor from the example at bottom of assingment
+                const randomInteger = Math.floor(Math.random() * 6 + 1);
+                numbers.push(randomInteger);
+            }
+
+            // use console.log to check to make sure it is working 
+            console.log(numbers);
+            console.log("Input: "+userInput);
+
+            // get dice images using document.quertyselectorAll()
+            var diceIMG = document.querySelectorAll("#diceImages img");
+            // now Loop through images array and set each image to the one that shows corresponding value stored in numbers array .
+            for (let i = 0; i < diceIMG.length; i++) {
+                diceIMG[i].src = 'dice_images/' + numbers[i] + '.png';
+            }
+
+            // Check if the user guessed at least one value correctly
+            var correctGuess = numbers.includes(parseInt(userInput));
+
+            // Display a message if the correct guess is true == to above and if not then red 
+            // also add it so that the text turns green or red depending on the correct value 
+            var resultMessage = document.querySelector("#resultMessage");
+            if (correctGuess) {
+                resultMessage.style.color = "green";
+                resultMessage.textContent = "Congratulations! You guessed at least one correct value.";
+            } else {
+                resultMessage.style.color = "red";
+                resultMessage.textContent = "Sorry, none of your guesses were correct.";
+            }
+        }
+
+        // Attach the click event listener to the button
+        document.querySelector("#submitGuess").onclick = function() {
+            const userInput = document.querySelector("#userInput").value;
+            checkGuess(userInput);
+        };
+    </script>
+</body>
+</html>
